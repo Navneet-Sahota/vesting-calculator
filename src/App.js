@@ -11,14 +11,14 @@ function App() {
   const [vestingPeriod, setVestingPeriod] = useState();
   const [cliff, setCliff] = useState();
   const [vestingStartDate, setVestingStartDate] = useState();
-  const [showVestingSchedule, setShowVestingSchedule] = useState(false);
+  const [showVestingData, setShowVestingData] = useState(false);
 
   function handleSubmit(shares, vestingPeriod, cliff, vestingStartDate) {
     setShares(shares);
     setVestingPeriod(vestingPeriod);
     setCliff(cliff);
     setVestingStartDate(vestingStartDate);
-    setShowVestingSchedule(true);
+    setShowVestingData(true);
   }
 
   return (
@@ -27,7 +27,7 @@ function App() {
         Vesting Calculator
       </Header>
       <VestingInputForm handleSubmit={handleSubmit} />
-      {showVestingSchedule ? (
+      {showVestingData ? (
         <>
           <VestDetails
             shares={shares}
