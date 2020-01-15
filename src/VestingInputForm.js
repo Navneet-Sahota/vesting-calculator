@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 
-const VestingInputForm = () => {
+const VestingInputForm = ({ handleSubmit }) => {
   const [shares, setShares] = useState();
   const [vestingPeriod, setVestingPeriod] = useState();
   const [cliff, setCliff] = useState();
   const [vestingStartDate, setVestingStartDate] = useState();
 
   return (
-    <Form
-      onSubmit={() =>
-        console.log(shares, vestingPeriod, cliff, vestingStartDate)
-      }
-    >
+    <Form onSubmit={() => handleSubmit(shares, vestingPeriod, cliff)}>
       <Form.Group widths="equal">
         <Form.Input
           value={shares}

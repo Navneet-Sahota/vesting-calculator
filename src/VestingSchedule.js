@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-const VestingSchedule = ({ shares = 1000, vestingPeriod = 36, cliff = 12 }) => {
+const VestingSchedule = ({ shares, vestingPeriod, cliff }) => {
   const actualVestedAfterCliff = shares * (cliff / vestingPeriod);
   const actualSharePerMonth = shares / vestingPeriod;
   let remainingFraction = actualVestedAfterCliff % 1;
@@ -15,7 +15,7 @@ const VestingSchedule = ({ shares = 1000, vestingPeriod = 36, cliff = 12 }) => {
   const rows = [];
   for (let i = 0; i < vestingPeriod; i += 1) {
     rows.push(
-      <Table.Row key={i}>
+      <Table.Row className="right" key={i}>
         <Table.Cell>{i + 1}</Table.Cell>
         <Table.Cell>
           {i < cliff
@@ -69,7 +69,7 @@ const VestingSchedule = ({ shares = 1000, vestingPeriod = 36, cliff = 12 }) => {
   return (
     <Table celled>
       <Table.Header>
-        <Table.Row>
+        <Table.Row className="right">
           <Table.HeaderCell>Period</Table.HeaderCell>
           <Table.HeaderCell>per period (actual)</Table.HeaderCell>
           <Table.HeaderCell>Fractional Remaining</Table.HeaderCell>
