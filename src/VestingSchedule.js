@@ -7,8 +7,7 @@ const VestingSchedule = ({ shares, vestingPeriod, cliff }) => {
   let remainingFraction = actualVestedAfterCliff % 1;
 
   function calculateRemainingFraction() {
-    remainingFraction = remainingFraction % 1;
-    remainingFraction = remainingFraction + (actualSharePerMonth % 1);
+    remainingFraction = (remainingFraction % 1) + (actualSharePerMonth % 1);
     return (remainingFraction % 2).toFixed(3);
   }
 
@@ -20,30 +19,30 @@ const VestingSchedule = ({ shares, vestingPeriod, cliff }) => {
         <Table.Cell>
           {i < cliff
             ? (0).toFixed(3)
-            : i === cliff
+            : i == cliff
             ? actualVestedAfterCliff.toFixed(3)
             : actualSharePerMonth.toFixed(3)}
         </Table.Cell>
         <Table.Cell>
           {i < cliff
             ? (0).toFixed(3)
-            : i === cliff
+            : i == cliff
             ? (actualVestedAfterCliff % 1).toFixed(3)
             : (actualSharePerMonth % 1).toFixed(3)}
         </Table.Cell>
         <Table.Cell>
           {i < cliff
             ? (0).toFixed(3)
-            : i === cliff
+            : i == cliff
             ? remainingFraction.toFixed(3)
             : calculateRemainingFraction()}
         </Table.Cell>
         <Table.Cell>
           {i < cliff
             ? (0).toFixed(3)
-            : i === cliff
+            : i == cliff
             ? Math.floor(actualVestedAfterCliff).toFixed(3)
-            : calculateRemainingFraction() > 1
+            : (remainingFraction % 2).toFixed(3) >= 1
             ? Math.floor(1 + actualSharePerMonth).toFixed(3)
             : Math.floor(actualSharePerMonth).toFixed(3)}
         </Table.Cell>

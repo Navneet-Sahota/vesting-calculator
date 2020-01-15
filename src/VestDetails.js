@@ -42,9 +42,9 @@ const VestDetails = ({ shares, vestingPeriod, cliff, vestingStartDate }) => {
     const specificShares =
       monthDiff < cliff
         ? (0).toFixed(3)
-        : monthDiff === cliff
+        : monthDiff == cliff
         ? Math.floor(actualVestedAfterCliff).toFixed(3)
-        : calculateRemainingFraction() > 1
+        : calculateRemainingFraction() >= 1
         ? Math.floor(1 + actualSharePerMonth).toFixed(3)
         : Math.floor(actualSharePerMonth).toFixed(3);
     setTotalShares(totalShares);
