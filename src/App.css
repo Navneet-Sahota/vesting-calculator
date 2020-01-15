@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.extra-space {
+  margin: 2.5% 0 5% 0 !important;
+}
+
 .right {
   text-align: right;
 }
@@ -9,4 +13,9 @@
 .block-el {
   display: block !important;
   margin: 16px !important;
+}
+
+.green-btn button {
+  color: white !important;
+  background: #307d5e !important;
 }

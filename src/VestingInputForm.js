@@ -54,7 +54,7 @@ const VestingInputForm = ({ handleSubmit }) => {
           label="Starting Vest Date"
         />
       </Form.Group>
-      <Form.Field className="center" control={Button}>
+      <Form.Field className="center green-btn" control={Button}>
         Submit
       </Form.Field>
     </Form>

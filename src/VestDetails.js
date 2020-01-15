@@ -60,7 +60,7 @@ const VestDetails = ({ shares, vestingPeriod, cliff, vestingStartDate }) => {
         id="vest-details-date"
         label="Future Vest Date"
       />
-      <div className="block-el center">
+      <div className="block-el center green-btn">
         <Button disabled={!vestDetailsDate} onClick={handleSubmit}>
           Submit
         </Button>

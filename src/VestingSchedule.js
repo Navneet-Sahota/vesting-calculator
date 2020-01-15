@@ -67,7 +67,7 @@ const VestingSchedule = ({ shares, vestingPeriod, cliff }) => {
   }
 
   return (
-    <Table celled>
+    <Table style={{ marginBottom: "10%" }} celled>
       <Table.Header>
         <Table.Row className="right">
           <Table.HeaderCell>Period</Table.HeaderCell>

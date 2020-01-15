@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Container>
-      <Header as="h1" className="center">
+      <Header as="h1" className="extra-space center">
         Vesting Calculator
       </Header>
       <VestingInputForm handleSubmit={handleSubmit} />
