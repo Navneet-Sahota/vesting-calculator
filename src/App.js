@@ -4,17 +4,20 @@ import { Container, Header } from "semantic-ui-react";
 import "./App.css";
 import VestingInputForm from "./VestingInputForm";
 import VestingSchedule from "./VestingSchedule";
+import VestDetails from "./VestDetails";
 
 function App() {
   const [shares, setShares] = useState();
   const [vestingPeriod, setVestingPeriod] = useState();
   const [cliff, setCliff] = useState();
+  const [vestingStartDate, setVestingStartDate] = useState();
   const [showVestingSchedule, setShowVestingSchedule] = useState(false);
 
-  function handleSubmit(shares, vestingPeriod, cliff) {
+  function handleSubmit(shares, vestingPeriod, cliff, vestingStartDate) {
     setShares(shares);
     setVestingPeriod(vestingPeriod);
     setCliff(cliff);
+    setVestingStartDate(vestingStartDate);
     setShowVestingSchedule(true);
   }
 
@@ -25,11 +28,19 @@ function App() {
       </Header>
       <VestingInputForm handleSubmit={handleSubmit} />
       {showVestingSchedule ? (
-        <VestingSchedule
-          shares={shares}
-          vestingPeriod={vestingPeriod}
-          cliff={cliff}
-        />
+        <>
+          <VestDetails
+            shares={shares}
+            vestingPeriod={vestingPeriod}
+            cliff={cliff}
+            vestingStartDate={vestingStartDate}
+          />
+          <VestingSchedule
+            shares={shares}
+            vestingPeriod={vestingPeriod}
+            cliff={cliff}
+          />
+        </>
       ) : null}
     </Container>
   );

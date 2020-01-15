@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Input } from "semantic-ui-react";
 
 const VestingInputForm = ({ handleSubmit }) => {
   const [shares, setShares] = useState();
@@ -8,10 +8,15 @@ const VestingInputForm = ({ handleSubmit }) => {
   const [vestingStartDate, setVestingStartDate] = useState();
 
   return (
-    <Form onSubmit={() => handleSubmit(shares, vestingPeriod, cliff)}>
+    <Form
+      onSubmit={() =>
+        handleSubmit(shares, vestingPeriod, cliff, vestingStartDate)
+      }
+    >
       <Form.Group widths="equal">
-        <Form.Input
-          value={shares}
+        <Form.Field
+          control={Input}
+          required
           onChange={e => setShares(e.target.value)}
           fluid
           type="number"
@@ -19,8 +24,9 @@ const VestingInputForm = ({ handleSubmit }) => {
           label="Total Number of Shares"
           placeholder="Total Number of Shares"
         />
-        <Form.Input
-          value={vestingPeriod}
+        <Form.Field
+          control={Input}
+          required
           onChange={e => setVestingPeriod(e.target.value)}
           fluid
           type="number"
@@ -28,8 +34,9 @@ const VestingInputForm = ({ handleSubmit }) => {
           label="Vesting Period (in months)"
           placeholder="Vesting Period (in months)"
         />
-        <Form.Input
-          value={cliff}
+        <Form.Field
+          control={Input}
+          required
           onChange={e => setCliff(e.target.value)}
           fluid
           type="number"
@@ -37,8 +44,9 @@ const VestingInputForm = ({ handleSubmit }) => {
           label="Cliff (in months)"
           placeholder="Cliff (in months)"
         />
-        <Form.Input
-          value={vestingStartDate}
+        <Form.Field
+          control={Input}
+          required
           onChange={e => setVestingStartDate(e.target.value)}
           fluid
           type="date"
